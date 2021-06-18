@@ -100,10 +100,12 @@ class CentralDifference():
                     disp_initial = disp_initial
                     vel_initial = vel_initial
                     acc_initial = -g - (self.c / self.m) * vel_initial - (self.k / self.m) * disp_initial
-                    disp_prev = round(disp_initial - chg_time * vel_initial + ((chg_time**2)/2) * acc_initial, 5)
+                    disp_prev = disp_initial - (chg_time * vel_initial) + ((chg_time**2)/2) * acc_initial 
+                    print(acc_initial)
+                    print(disp_prev)
 
                 disp_current = ((-float(g) * self.m) / a) + ((b / a) * disp_prev) + (( e / a) * (disp_initial)) 
-                displacements.append(round(disp_current, 5))
+                displacements.append(disp_current)
 
                 disp_prev = disp_initial
                 disp_initial = disp_current
